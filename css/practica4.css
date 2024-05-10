@@ -4,8 +4,20 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-    text-decoration: smooth;
+    text-decoration: none;
+    scroll-behavior: smooth;
     scroll-padding: 2rem;
+}
+
+:root{
+    --text-color: #fdfffc;
+    --bg-color: #000814; 
+    --main-color: #ff002b;
+}
+
+::selection{
+    color: var(--text-color);
+    background-color: var(--main-color);
 }
 
 .container{
@@ -34,7 +46,7 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgb(247, 20, 20);
+    background-color: var(--bg-color);
     box-shadow: 0 1px 4px rgb(99, 35, 99);
     z-index: 100;
 
@@ -51,18 +63,17 @@ header{
 .logo{
     font-size: 1.8rem;
     font-weight: bold;
-    color: rgb(252, 252, 255);
+    color: var(--text-color);
     text-transform: uppercase;
 }
 
 .logo span{
-    color: rgb(31, 27, 27);
+    color: rgb(238, 5, 5);
     font-size: bold;
 
 }
 
 #cart-icon{
-    width: 6%;
     font-size: 1.8rem;
     cursor: pointer;
 
@@ -72,18 +83,113 @@ header{
     position: fixed;
     top: 0;
     right: 0;
-    right: -100vh;
+    right: -100%;
     width: 360px;
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 20px;
-    background-color: rgb(226, 221, 221);
+    background-color: var(--bg-color);
     box-shadow: -2px solid 4px rgb(87, 17, 87);
-    border: 1px solid red;
+    border: 1px solid var(--main-color);
     transition: 1.7s;
 }
 
+.cart.active{
+    right: 0;
+    transition: .5s;
+}
+
+.cart-title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+.cart-box{
+    display: grid;
+    grid-template-columns: 32% 50% 18%;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.cart-img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.detail.box{
+    display: grid;
+    row-gap: .5rem;
+}
+
+.cart-product-title{
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.cart-price{
+    font-weight: 500;
+}
+
+.cart-quantity{
+    border: 1px solid var(--text-color);
+    outline-color: var(--main-color);
+    width: 1.4rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.cart-remove{
+    font-size: 24px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.total{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--text-color);
+}
+
+.total-title{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.total-price{
+    margin-left: .5rem;
+}
+
+btn-buy{
+    display: flex;
+    margin: 1,5rem auto 0 auto;
+    padding: 12px 20px;
+    border: none;
+    background-color: #4946fd;
+    color: #000814;
+    font-size: 1rem;
+}
+
+.btn-buy:hover{
+    background-color: var(--main-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+#cart-close{
+    position: absolute;
+    top: 1rem;
+    right: .8rem;
+    font-size: 2rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
 
 .shop{
     margin-top: 2rem;
@@ -133,11 +239,10 @@ header{
 
 .add-cart{
     position: absolute;
-    width: 10%;
     bottom: 0;
     right: 0;
-    background-color: rgb(15, 15, 15);
-    color: rgb(11, 17, 17);
+    background-color: var(--text-color);
+    color: var(--bg-color);
     padding: 11px;
     cursor: pointer;
     transition: .5s;
