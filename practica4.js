@@ -54,9 +54,9 @@ function addEvents(){
 
 function handle_addCartItem(){
     let product = this.parentElement
-    let title = product.querySelector('.product-title')
+    let title = product.querySelector('.product-title').innerHTML
     let price = product.querySelector('.product-price').innerHTML
-    let imgSrc = product.querySelector('.product-img')
+    let imgSrc = product.querySelector('.product-img').src
 
     console.log(title, prince, imgSrc)
 
